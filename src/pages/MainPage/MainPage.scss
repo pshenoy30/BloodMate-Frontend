@@ -1,0 +1,50 @@
+@use "../../styles/partials/globals" as *;
+@use "../../styles/partials/variables" as *;
+
+.main{
+    &__title{
+        font-size: 2.5rem;
+        color: $primary-white;
+        text-align: center;
+        padding: 0 5rem;
+        margin-bottom: 2rem;
+        font-weight: 600;
+    }
+    &__button-container{
+        display: flex;
+        justify-content: space-evenly;
+        width: 100vw;
+    }
+    &__button{
+        width: 10rem;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+        &--donor{
+            color: $primary-white;
+            font-weight: 600;
+            background-image: url("../../assets/donor.svg");
+            background-size: 1.25rem 1.25rem;
+            background-repeat: no-repeat;
+            background-position: 0.75rem center;
+            background-color: $primary-pink;
+            padding: 0.5rem 2rem 0.5rem 2.5rem;
+            border: 1px solid $primary-pink;
+            border-radius: 20px;
+        }
+        &--requestor{
+            color: $primary-white;
+            font-weight: 600;
+            background-image: url("../../assets/requestor.svg");
+            background-size: 1.25rem 1.25rem;
+            background-repeat: no-repeat;
+            background-position: 0.75rem center;
+            background-color: $primary-pink;
+            padding: 0.5rem 2rem 0.5rem 2.5rem;
+            border: 1px solid $primary-pink;
+            border-radius: 20px;
+        }
+        &:hover{
+            background-color: $secondary-cloud;
+            color: $secondary-pink;
+        }
+    }
+}

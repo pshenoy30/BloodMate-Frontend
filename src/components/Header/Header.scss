@@ -1,0 +1,9 @@
+@use "../../styles/partials/globals" as *;
+
+.logo {
+    position: absolute;
+    top: 0;
+    &__image{
+        width: 100vw;
+    }
+}
