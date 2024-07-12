@@ -13,6 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/donor" element={<DonorPage />} />
+        <Route path="/donor/:city" element={<DonorPage />} />
 
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
