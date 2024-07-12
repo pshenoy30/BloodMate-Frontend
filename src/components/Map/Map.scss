@@ -1,0 +1,14 @@
+
+.modal{
+    &__title{
+        color: aqua;
+        &--center{
+            text-align: center;
+        }
+    }
+    &__hours-container{
+        display: flex;
+        justify-content: space-between;
+    }
+
+}
