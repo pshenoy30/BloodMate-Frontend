@@ -1,0 +1,36 @@
+@use "../../styles/partials/globals" as *;
+@use "../../styles/partials/variables" as *;
+
+.search{
+    &__container{
+        display: flex;
+        position: absolute;
+        gap: 0.75rem;
+        top: 7rem;
+        left: 1rem;
+    }
+    &__bar{
+        background-color: $primary-white;
+        box-sizing: border-box;
+        width: 15rem;
+        height: 2.5rem;
+        background-image: url("../../assets/search-24px.svg");
+        background-repeat: no-repeat;
+        background-position: right 0.5rem center;
+        color: $secondary-pink;
+        background-color: $secondary-cloud;
+        padding: 0.5rem 1rem;
+        border: 1px solid $secondary-pink;
+        border-radius: 20px;
+    }
+    &__button{
+        width: 6rem;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+        background-color: $primary-pink;
+        border: 1px solid $primary-pink;
+        border-radius: 20px;
+        color: $primary-white;
+        font-weight: 600;
+        height: 2.5rem;
+    }
+}
