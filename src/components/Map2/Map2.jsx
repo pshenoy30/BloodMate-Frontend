@@ -55,3 +55,16 @@ if (isLoading) {
 if (error) {
   return <p> Something went wrong. Please try refreshing the page</p>;
 }
+
+{selected?(<InfoWindow>
+  <article>
+    <h2>{selected.city}</h2>
+    {site.blood==="no"?null:<><h3>Blood</h3><hr /></>}
+    {site.plasma==="no"?null:<><h3>Plasma</h3><hr /></>}
+    {site.platelet==="no"?null:<><h3>Platelet</h3><hr /></>}
+  </article>
+</InfoWindow>):null}
+
+onClick={()=>{
+  setSelected(site);
+}}

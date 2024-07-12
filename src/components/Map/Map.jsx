@@ -1,8 +1,9 @@
 import { GoogleMap,useLoadScript,Marker,InfoWindow } from "@react-google-maps/api";
 import { formatRelative } from "date-fns";
 import MapStyles from "./MapStyles";
-import { useCallback, useRef, useState } from "react";
-import markerIcon from "../../assets/blood-bank.svg"
+import { useCallback, useRef, useState,useEffect } from "react";
+import icon from "../../assets/blood-bank.svg";
+import getSiteLocations from "../../utils/getsiteLocations";
 
 const libraries = ["places"];
 const mapContainerStyle = {
@@ -27,16 +28,32 @@ function Map() {
     libraries
   });
   const [markers, setMarkers] = useState([]);
-  const onMapClick = useCallback((event) => {
-    setMarkers((current) => [
-      ...current, new google.maps.Marker({
-        lat: event.latLng.lat(),
-        lng: event.latLng.lng(),
-        icon:{markerIcon},
-        time: new Date()
-      }),
-    ]);
-  }, [])
+  const [siteData, setSiteData] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(false);
+  const [selected, setSelected] = useState(null);
+  useEffect(() => {
+
+    async function getSiteData(city) {
+      try {
+        setSiteData(await getSiteLocations(city));
+        setIsLoading(false);
+      } catch (error) {
+        console.log("Error fetching data", error)
+      }
+    }
+  
+    getSiteData("Toronto");
+  },[]);
+  
+  if (isLoading) {
+    return <p> Loading inventory data... </p>;
+  }
+  
+  if (error) {
+    return <p> Something went wrong. Please try refreshing the page</p>;
+  }
+
   
   const mapRef = useRef();
   const onMapLoad = useCallback((map) => {
@@ -45,23 +62,28 @@ function Map() {
 
   if(loadError) return "Error loading maps";
   if(!isLoaded) return "Loading maps";
-    
+
+  const customIcon = {
+    url: icon,
+    scaledSize: new window.google.maps.Size(32, 32),
+  };
+
   return (
     <section>
         <GoogleMap 
         mapContainerStyle={mapContainerStyle} 
-        zoom={8} 
+        zoom={13} 
         center={center} 
         options={options} 
-        onClick={onMapClick}
         onLoad={onMapLoad}>
           {
-            markers.map((marker) => (
-              <Marker 
-              key={marker.time.toISOString()}
-              position={{lat: marker.lat, lng: marker.lng}}
-              icon={marker.icon}
-               />
+            //to tell the browser to ignore if it is null and within the milisecond it will receive the data
+            siteData?.map((site) => (
+                <Marker 
+                key={site.id}
+                position={{lat: site.latitude, lng: site.longitude}}
+                icon = {customIcon}
+                />
             ))
           }
         </GoogleMap>
