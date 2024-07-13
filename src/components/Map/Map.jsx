@@ -47,10 +47,12 @@ function Map() {
 
     async function getSiteData(cityChosen) {
       try {
-        setSiteData(await getSiteLocations(cityChosen));
+        console.log(cityChosen);
+        const response = await getSiteLocations(cityChosen);
+        setSiteData(response);
         setIsLoading(false);
       } catch (error) {
-        setError(true);
+        setIsOpen(true);
         console.log("Error fetching data", error);
       }
     }
@@ -66,7 +68,14 @@ function Map() {
     return <p> Something went wrong. Please try refreshing the page</p>;
   }
 
-  
+
+  function openModal(){
+    setIsOpen(true)
+  }
+  function closeModal(){
+    setIsOpen(false)
+  }
+
   const mapRef = useRef();
   const onMapLoad = useCallback((map) => {
     mapRef.current = map;
@@ -98,8 +107,6 @@ function Map() {
       setCenter({lat: Lat, lng: Lng})
       };
   });
-
-  console.log(center);
 
   return (
     <>
@@ -139,9 +146,9 @@ function Map() {
         </article>
         </section>
         {typeof siteData === 'undefined' && <Modal isOpen={modalIsOpen}
-        onRequestClose={() => setIsOpen(false)}
-        contentLabel="marker info" ariaHideApp={false} className="modal">
-        <button className='modal__close' onClick={() => setIsOpen(false)}>
+        onRequestClose={closeModal}
+        contentLabel="marker info" ariaHideApp={false} className="modal" shouldCloseOnOverlayClick={true}>
+        <button className='modal__close' onClick={closeModal}>
               <img className="list__img" src={closeImg} alt="close button" />
         </button>
         <h3 className="modal__title modal__title--center">No nearby donation sites</h3>      
