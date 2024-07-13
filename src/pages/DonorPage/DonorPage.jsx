@@ -1,9 +1,14 @@
-import SearchBar from "../../components/SearchBar/SearchBar";
+import Map from "../../components/Map/Map";
+import Header from '../../components/Header/Header';
 
 export default function DonorPage() {
         return (
-            <section>
-                <SearchBar />  
-            </section>
+            <>
+                <Header />
+                <main>
+                    <Map /> 
+                </main>
+            </>
+            
         )
 }

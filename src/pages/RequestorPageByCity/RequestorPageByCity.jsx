@@ -3,6 +3,7 @@ import getRequestorInfo from "../../utils/getRequestorInfo";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import "./RequestorPageByCity.scss"
+import Header from '../../components/Header/Header';
 
 export default function DonorPageByCity() {
     const [donors, setDonors] = useState(null);
@@ -36,6 +37,8 @@ export default function DonorPageByCity() {
   if(!isLoading){
     console.log(donors);
         return (
+          <>
+            <Header />
             <section>
                 <SearchBar />
                 <div className="requestor__cards">
@@ -61,6 +64,7 @@ export default function DonorPageByCity() {
                 ))}
                 </div>  
             </section>
+          </> 
         )
     }
 }

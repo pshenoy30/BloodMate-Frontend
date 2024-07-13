@@ -1,0 +1,76 @@
+@use "../../styles/partials/variables" as *;
+
+ .gm-style-iw{
+    width: 15rem !important;
+    box-shadow: 0 1px 6px rgba(178, 178, 178, 0.6);
+    border: 1px solid $primary-pink;
+    border-radius: 5px;
+ }
+
+.gm-style .gm-style-iw-d::-webkit-scrollbar-track, 
+.gm-style .gm-style-iw-d::-webkit-scrollbar-track-piece,
+.gm-style .gm-style-iw-c,
+.gm-style .gm-style-iw-t::after { 
+  background: $primary-pink;
+  color: $primary-white;
+}
+
+.info-window__button{
+    background-color: $primary-white;
+    color: $primary-pink;
+    font-weight: 600;
+}
+
+.modal{
+    height: 40;
+    padding: 3.75rem 1rem 1.5rem 1rem;
+    position: relative;
+    background-color: $primary-pink;
+    border-radius: 10px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.20);
+    margin: 0 1rem;
+    top: 20%;
+  
+    &__close{
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      border: none;
+      background-color: $primary-pink;
+    }
+    
+    &__title{
+      font-weight: 400;
+      color: $primary-white;
+      font-size: 1rem;
+      margin: 0 1rem;
+      &--center{
+        text-align: center;
+        font-weight:700;
+        font-size: 1.75rem;
+
+      }
+    }
+    &__text{
+      width: 100%;
+    }
+  
+    &__container{
+      display: flex;
+      flex-direction: column;
+      gap: 28rem;
+  
+    }
+  
+    &__text-container{
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      background-color: $primary-pink;
+    }
+
+    &__hours-container{
+        display: flex;
+        justify-content: space-between;
+    }
+  }

@@ -10,13 +10,12 @@
         left: 1rem;
     }
     &__bar{
-        background-color: $primary-white;
         box-sizing: border-box;
-        width: 15rem;
+        width: 18rem;
         height: 2.5rem;
         background-image: url("../../assets/search-24px.svg");
         background-repeat: no-repeat;
-        background-position: right 0.5rem center;
+        background-position: right 0.5rem center ;
         color: $secondary-pink;
         background-color: $secondary-cloud;
         padding: 0.5rem 1rem;
@@ -31,6 +30,27 @@
         border-radius: 20px;
         color: $primary-white;
         font-weight: 600;
+        height: 2.5rem;
+    }
+
+    &__suggestions{
+        background-color: $secondary-cloud;
+        border-radius: 20px;
+        border: 1px solid $primary-pink;
+    }
+
+    &__list{
+        list-style-type: none;
+        padding-left: 1rem;
+        margin-bottom: 1rem;
+        color: $secondary-pink;
+        &__item{
+            font-weight: 500;
+            font-size: 0.75rem;
+        }
+    }
+    &__locator__image{
+        width: 2.5rem;
         height: 2.5rem;
     }
 }
