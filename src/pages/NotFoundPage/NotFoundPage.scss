@@ -1,0 +1,25 @@
+@use "../../styles/partials/globals" as *;
+@use "../../styles/partials/variables" as *;
+
+body,html {
+    height: 100%;
+    margin: 0;
+}
+.not-found{
+    background-image: url("../../assets/404-background.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    color: $background-pink;
+
+    &__container{
+        text-align: center;
+        padding: 2rem;
+    }
+
+    &__title{
+        margin: 0;
+    }
+}
