@@ -4,7 +4,8 @@ import { useNavigate } from "react-router-dom";
 import Compass from "../../assets/compass.svg"
 import "./searchBar.scss"
 
-function SearchBar({panTo}) {
+function SearchBar({panTo,type}) {
+
   sessionStorage.removeItem('upa');
   const navigate = useNavigate();
 
@@ -12,24 +13,30 @@ function SearchBar({panTo}) {
    requestOptions:{
        location: {  lat: () => 43.653225, lng:() => -79.383186},
        radius: 200*1000,
-       types: ["locality"],
        componentRestrictions: {
          country: "ca",
        }
    }
  })
+
   return (
     <section className="search__container">
+      {type === "Map"?<>
       <Combobox onSelect={ async (address) => {
-                setValue(address, false); 
+                setValue(address, false)
+                clearSuggestions(); 
                   try{
                     const results = await getGeocode({address});
-                    const param = results[0].formatted_address.split(",")[0];
+                    let params = results[0].address_components.find((item) => item.types[0] === 'locality');
+                    console.log(results[0]);
+                    console.log(params)
+                    const param = params.long_name;
                     const { lat, lng } = getLatLng(results[0]);
-                    panTo ({ lat, lng });
-                    navigate(`/donor/${param}`)
+                    console.log({ lat, lng })
+                    navigate(`/donor/${param}/${lat}/${lng}`)
                   } catch (error){
                     console.log("Couldn't fetch the lat and lng", error);
+                    navigate(`/locationNotFound`)
                   }
               }}>
                   <ComboboxInput value={value} onChange={(e) => {
@@ -65,6 +72,35 @@ function SearchBar({panTo}) {
                   }
                 }  />
               </div>
+
+      </>:<Combobox onSelect={ async (address) => {
+                setValue(address, false)
+                clearSuggestions(); 
+                  try{
+                    const results = await getGeocode({address});
+                    const params = results[0].address_components.find((item) => item.types[0] === 'locality');
+                    console.log(results[0])
+                    const param = params.long_name;
+                    navigate(`/requestor/${param}`)
+                  } catch (error){
+                    console.log("Couldn't fetch the lat and lng", error);
+                  }
+              }}>
+                  <ComboboxInput value={value} onChange={(e) => {
+                      setValue(e.target.value);
+                  }} disabled={!ready}
+                  placeholder="Enter the nearest city"
+                  className="search__bar"
+                  />
+                  <ComboboxPopover className="search__suggestions">
+                     <ComboboxList className="search__list">
+                     {status === "OK" &&data.length>0?data?.map(({id,description})=>(
+                              <ComboboxOption key={id} value={description} className="search__list__item"/>
+                          )):<h3 className="search__list__item">No results found</h3>}
+
+                      </ComboboxList>
+                  </ComboboxPopover>
+              </Combobox>}
     </section>
   )
 }

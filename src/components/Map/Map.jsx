@@ -1,5 +1,5 @@
 import { GoogleMap,useLoadScript,Marker,InfoWindowF } from "@react-google-maps/api";
-import { getGeocode, getLatLng } from "use-places-autocomplete";
+import { getLatLng } from "use-places-autocomplete";
 import MapStyles from "./MapStyles";
 import { useCallback, useRef, useState,useEffect } from "react";
 import icon from "../../assets/blood-bank.svg";
@@ -7,7 +7,7 @@ import getSiteLocations from "../../utils/getsiteLocations";
 import Modal from 'react-modal';
 import "./Map.scss"
 import SearchBar from "../../components/SearchBar/SearchBar";
-import {useParams, useNavigate} from "react-router-dom";
+import {useParams} from "react-router-dom";
 import closeImg from "../../assets/close-24px.svg"
 
 const libraries = ["places"];
@@ -22,8 +22,6 @@ const options = {
   zoomControl: true,
 }
 
-let setCity = "Toronto"
-
 function Map() {
 
   const {isLoaded, loadError} = useLoadScript({
@@ -36,42 +34,37 @@ function Map() {
   const [isError, setError] = useState(false);
   const [selected, setSelected] = useState(null);
   const [modalIsOpen, setIsOpen] = useState(false);
-  const [center, setCenter] = useState({lat: 43.6532,lng: -79.3832})
-  const { city } = useParams()
- 
-  if (city){
-    setCity = city
-  }
+  const { city,Lat,Lng} = useParams()
 
+  let center = {lat: +Lat, lng: +Lng};
+ 
   useEffect(() => {
 
     async function getSiteData(cityChosen) {
       try {
-        console.log(cityChosen);
         const response = await getSiteLocations(cityChosen);
         setSiteData(response);
+        if(typeof response === 'undefined'){
+          setIsOpen(true);
+        }
         setIsLoading(false);
       } catch (error) {
-        setIsOpen(true);
         console.log("Error fetching data", error);
+        setError(error);
       }
     }
   
-    getSiteData(setCity);
-  }, [setCity]);
+    getSiteData(city);
+  }, [city]);
 
   if (isLoading) {
-    return <p> Loading inventory data... </p>;
+    return <p> Loading site data... </p>;
   }
   
   if (isError) {
     return <p> Something went wrong. Please try refreshing the page</p>;
   }
 
-
-  function openModal(){
-    setIsOpen(true)
-  }
   function closeModal(){
     setIsOpen(false)
   }
@@ -80,11 +73,6 @@ function Map() {
   const onMapLoad = useCallback((map) => {
     mapRef.current = map;
   }, [])
-
-  const panTo = useCallback(({lat, lng}) => {
-    mapRef.current.panTo({lat, lng});
-    mapRef.current.setZoom(10);
-  })
 
   if(loadError) return "Error loading maps";
   if(!isLoaded) return "Loading maps";
@@ -96,22 +84,10 @@ function Map() {
     scaledSize: new window.google.maps.Size(30, 30),
   };
 
-  var geocoder = new google.maps.Geocoder();
-  geocoder.geocode({
-    'address': setCity
-  }, function(results, status) {
-    console.log()
-    if (status == google.maps.GeocoderStatus.OK) {
-      var Lat = results[0].geometry.location.lat();
-      var Lng = results[0].geometry.location.lng();
-      setCenter({lat: Lat, lng: Lng})
-      };
-  });
-
   return (
     <>
     <section>
-    <SearchBar panTo={panTo} />
+    <SearchBar type="Map"/>
     <article className="map-container">
         <GoogleMap 
         mapContainerStyle={mapContainerStyle} 
@@ -131,6 +107,22 @@ function Map() {
                   setSelected(site);
                 }}/>
             ))}
+            <Modal isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        contentLabel="marker info" ariaHideApp={false} className="modal" shouldCloseOnOverlayClick={true}>
+        <button className='modal__close' onClick={closeModal}>
+              <img className="list__img" src={closeImg} alt="close button" />
+        </button>
+        <h3 className="modal__title modal__title--center">No nearby donation sites. Please try a different location</h3>      
+        </Modal>
+        {/* <Modal isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        contentLabel="marker info" ariaHideApp={false} className="modal" shouldCloseOnOverlayClick={true}>
+        <button className='modal__close' onClick={closeModal}>
+              <img className="list__img" src={closeImg} alt="close button" />
+        </button>
+        <h3 className="modal__title modal__title--center">Google maps api doesnot have the latitude and longitude information to display it on the map</h3>      
+        </Modal> */}
             {selected ? (
                 <InfoWindowF position={{lat: selected.latitude, lng: selected.longitude}} onCloseClick={()=>setSelected(null)}>
                 <article>
@@ -145,15 +137,6 @@ function Map() {
         </GoogleMap>
         </article>
         </section>
-        {typeof siteData === 'undefined' && <Modal isOpen={modalIsOpen}
-        onRequestClose={closeModal}
-        contentLabel="marker info" ariaHideApp={false} className="modal" shouldCloseOnOverlayClick={true}>
-        <button className='modal__close' onClick={closeModal}>
-              <img className="list__img" src={closeImg} alt="close button" />
-        </button>
-        <h3 className="modal__title modal__title--center">No nearby donation sites</h3>      
-        </Modal>} 
-        
         {selected && <Modal isOpen={modalIsOpen}
         onRequestClose={() => setIsOpen(false)}
         contentLabel="marker info" className="modal">

@@ -11,7 +11,7 @@ function MainPage() {
         <main>
             <h1 className="main__title">Are you a ?</h1>
             <section className="main__button-container">
-            <Link to="/donor/Toronto">
+            <Link to="/donor">
                 <button type="submit" className="main__button main__button--donor"> Donor </button>
             </Link>
             <Link to="/requestor">
