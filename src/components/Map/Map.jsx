@@ -1,5 +1,5 @@
-import { GoogleMap,useLoadScript,Marker,InfoWindowF } from "@react-google-maps/api";
-import { getLatLng } from "use-places-autocomplete";
+import { GoogleMap,useLoadScript,Marker,InfoWindowF,DirectionsRenderer } from "@react-google-maps/api";
+import findClosestMarker from "../../utils/findClosestMarker.js"
 import MapStyles from "./MapStyles";
 import { useCallback, useRef, useState,useEffect } from "react";
 import icon from "../../assets/blood-bank.svg";
@@ -9,8 +9,9 @@ import "./Map.scss"
 import SearchBar from "../../components/SearchBar/SearchBar";
 import {useParams} from "react-router-dom";
 import closeImg from "../../assets/close-24px.svg"
+import getRoutes from "../../utils/getRoutes.js";
 
-const libraries = ["places"];
+const libraries = ["places","routes"];
 const mapContainerStyle = {
   width: "100vw",
   height: "50vh"
@@ -34,7 +35,15 @@ function Map() {
   const [isError, setError] = useState(false);
   const [selected, setSelected] = useState(null);
   const [modalIsOpen, setIsOpen] = useState(false);
-  const { city,Lat,Lng} = useParams()
+  // const [origin, setOrigin] = useState("");
+  // const [end, setEnd] = useState("");
+  const [routes, setRoutes] = useState(null);
+  const [distance, setDistance] = useState("");
+  const [duration, setDuration] = useState("");
+  const { city, Lat, Lng, address} = useParams()
+  const markers = []
+  const markerDistance = []
+  let destinationAddress = ""
 
   let center = {lat: +Lat, lng: +Lng};
  
@@ -57,6 +66,30 @@ function Map() {
     getSiteData(city);
   }, [city]);
 
+  if(siteData){
+    siteData.forEach((site) => {
+      let markerLat = new google.maps.LatLng(site.latitude, site.longitude).lat();
+      let markerLng = new google.maps.LatLng(site.latitude, site.longitude).lng();
+     markers.push({lat: markerLat, lng: markerLng});
+    });
+    const closest = findClosestMarker(center.lat,center.lng, markers)
+    destinationAddress = siteData.find((address) => (address.latitude === closest.lat && address.longitude === closest.lng)).fullAddress;
+
+  }
+
+  const getRoutes = useCallback(async (origin,end)=>{
+
+    const directionsService = new google.maps.DirectionsService();
+    const response = await directionsService.route({
+        origin: origin,
+        destination: end,
+        travelMode: google.maps.TravelMode.DRIVING  
+    })
+    setRoutes(response);
+    setDistance(response.routes[0].legs[0].distance.text)
+    setDuration(response.routes[0].legs[0].duration.text)
+  })
+  
   if (isLoading) {
     return <p> Loading site data... </p>;
   }
@@ -88,6 +121,9 @@ function Map() {
     <>
     <section>
     <SearchBar type="Map"/>
+    <div className="map__button-container">
+      <button type="button" className="map__button" onClick={() => getRoutes(address,destinationAddress)}>Get Directions</button>
+    </div>
     <article className="map-container">
         <GoogleMap 
         mapContainerStyle={mapContainerStyle} 
@@ -107,6 +143,7 @@ function Map() {
                   setSelected(site);
                 }}/>
             ))}
+            {routes && (<DirectionsRenderer directions={routes} />)}
             <Modal isOpen={modalIsOpen}
         onRequestClose={closeModal}
         contentLabel="marker info" ariaHideApp={false} className="modal" shouldCloseOnOverlayClick={true}>

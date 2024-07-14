@@ -1,5 +1,22 @@
 @use "../../styles/partials/variables" as *;
 
+.map{
+  &__button-container{
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+  }
+  &__button{
+    width: 10rem;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    background-color: $secondary-cloud;
+    border: 1px solid $secondary-cloud;
+    border-radius: 20px;
+    color: $background-pink;
+    font-weight: 600;
+    height: 2.5rem;
+}
+}
  .gm-style-iw{
     width: 15rem !important;
     box-shadow: 0 1px 6px rgba(178, 178, 178, 0.6);

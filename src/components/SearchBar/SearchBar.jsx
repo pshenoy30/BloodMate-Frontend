@@ -29,11 +29,12 @@ function SearchBar({panTo,type}) {
                     const results = await getGeocode({address});
                     let params = results[0].address_components.find((item) => item.types[0] === 'locality');
                     console.log(results[0]);
+
                     console.log(params)
                     const param = params.long_name;
                     const { lat, lng } = getLatLng(results[0]);
                     console.log({ lat, lng })
-                    navigate(`/donor/${param}/${lat}/${lng}`)
+                    navigate(`/donor/${param}/${lat}/${lng}/${results[0].formatted_address}`)
                   } catch (error){
                     console.log("Couldn't fetch the lat and lng", error);
                     navigate(`/locationNotFound`)

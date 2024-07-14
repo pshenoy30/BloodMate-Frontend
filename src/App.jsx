@@ -15,7 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/donor" element={<DonorPage />} />
-        <Route path="/donor/:city/:Lat/:Lng" element={<DonorPageByCity />} />
+        <Route path="/donor/:city/:Lat/:Lng/:address" element={<DonorPageByCity />} />
         <Route path="/requestor" element={<RequestorPage />} />
         <Route path="/requestor/:city" element={<RequestorPageByCity />} />
 
