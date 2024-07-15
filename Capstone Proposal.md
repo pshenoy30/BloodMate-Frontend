@@ -63,9 +63,10 @@ Provide visuals of your app's screens. You can use tools like Figma or pictures 
 
 - The site is designed to be used for mobile screens at 370px
 
-### Donor Route
-![Image](./Mockups/Main Page.png "Main Page")
-![Image](./Mockups/Donor Site Location.png "Get the location of the donor")
+### Main Page
+![Image](./Mockups/Main Page.png)
+### Get the location of the donor
+![Image](./Mockups/Donor Site Location.png "")
 ![Alt text](./Mockups/Getting the donor sites near the donor location.png "Showing all the near donor sites")
 ![Alt text](./Mockups/Route to the nearest donor location.png "Showing the route to the nearest donation site")
 ![Alt text](./Mockups/infomation of donor site.png "Showing the information of the donor site on click")
