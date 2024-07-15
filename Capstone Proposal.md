@@ -63,10 +63,21 @@ Provide visuals of your app's screens. You can use tools like Figma or pictures 
 
 - The site is designed to be used for mobile screens at 370px
 
-### Main Page
+<table>
+  <tr>
+    <td>First Screen Page</td>
+     <td>Holiday Mention</td>
+     <td>Present day in purple and selected day in pink</td>
+  </tr>
+  <tr>
+    <td><img src="/Mockups/Main Page.png" width=270 height=480></td>
+    <td><img src="/Mockups/Donor Site Location.png" width=270 height=480></td>
+    <td><img src="/Mockups/Getting the donor sites near the donor location.png" width=270 height=480></td>
+  </tr>
+ </table>
 ![Main Page](https://github.com/pshenoy30/pratiksha-shenoy-capstone-frontend/blob/feature/proposal/Mockups/Main%20Page.png)
-### Get the location of the donor
-![Get the location of the donor](./Mockups/Donor Site Location.png "")
+![Get the location of the donor](https://github.com/pshenoy30/pratiksha-shenoy-capstone-frontend/blob/feature/proposal/Mockups/Donor%20Site%20Location.png)
+
 ![Alt text](./Mockups/Getting the donor sites near the donor location.png "Showing all the near donor sites")
 ![Alt text](./Mockups/Route to the nearest donor location.png "Showing the route to the nearest donation site")
 ![Alt text](./Mockups/infomation of donor site.png "Showing the information of the donor site on click")
