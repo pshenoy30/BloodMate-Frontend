@@ -63,31 +63,46 @@ Provide visuals of your app's screens. You can use tools like Figma or pictures 
 
 - The site is designed to be used for mobile screens at 370px
 
+### Donor Route
 <table>
   <tr>
     <td>First Screen Page</td>
-     <td>Holiday Mention</td>
-     <td>Present day in purple and selected day in pink</td>
+     <td>Get the location of the donor</td>
+     <td>Showing all the near donor sites</td>
+     <td>Showing the route to the nearest donation site</td>
+     <td>Showing the information of the donor site on click</td>
+     <td>Showing the timing of clicked donation site</td>
+     <td>Page not found</td>
   </tr>
   <tr>
-    <td><img src="/Mockups/Main Page.png" width=300 height=480></td>
-    <td><img src="/Mockups/Donor Site Location.png" width=300 height=480></td>
-    <td><img src="/Mockups/Getting the donor sites near the donor location.png" width=300 height=480></td>
+    <td><img src="/Mockups/Main Page.png" width=395 height=480></td>
+    <td><img src="/Mockups/Donor Site Location.png" width=395 height=480></td>
+    <td><img src="/Mockups/Getting the donor sites near the donor location.png" width=395 height=480></td>
+    <td><img src="/Mockups" width=395 height=480></td>
+    <td><img src="/Mockups/Route to the nearest donor location.png" width=395 height=480></td>
+    <td><img src="/Mockups/infomation of donor site.png" width=395 height=480></td>
+    <td><img src="/Mockups/Getting the donor sites near the donor location.png" width=395 height=480></td>
+    <td><img src="/Mockups/404 page.png" width=395 height=480></td>
   </tr>
  </table>
-![Main Page](https://github.com/pshenoy30/pratiksha-shenoy-capstone-frontend/blob/feature/proposal/Mockups/Main%20Page.png)
-![Get the location of the donor](https://github.com/pshenoy30/pratiksha-shenoy-capstone-frontend/blob/feature/proposal/Mockups/Donor%20Site%20Location.png)
-
-![Alt text](./Mockups/Getting the donor sites near the donor location.png "Showing all the near donor sites")
-![Alt text](./Mockups/Route to the nearest donor location.png "Showing the route to the nearest donation site")
-![Alt text](./Mockups/infomation of donor site.png "Showing the information of the donor site on click")
-![Alt text](./Mockups/Getting the donor sites near the donor location.png "Showing the timing of clicked donation site")
 
 ### Requestor Route
-![Alt text](./Mockups/Main Page.png "Main Page")
-![Alt text](./Mockups/Retrieve the location of the requestor.png  "Get the location of the requestor")
-![Alt text](./Mockups/All the donors who are in the given location.png "Showing all the near donors")
-![Alt text](./Mockups/Information of the donor selected.png "Information of the selected donor")
+<table>
+  <tr>
+    <td>First Screen Page</td>
+     <td>Get the location of the requestor</td>
+     <td>Showing all the nearby donors</td>
+     <td>Information of the donor selected</td>
+     <td>Page not found</td>
+  </tr>
+  <tr>
+    <td><img src="/Mockups/Main Page.png" width=395 height=480></td>
+    <td><img src="/Mockups/Retrieve the location of the requestor.png" width=395 height=480></td>
+    <td><img src="Mockups/All the donors who are in the given location.png" width=395 height=480></td>
+    <td><img src="/Mockups/Information of the donor selected.png" width=395 height=480></td>
+    <td><img src="/Mockups/404 page.png" width=395 height=480></td>
+  </tr>
+ </table>
 
 ### Not Found Route
 ![Alt text](./Mockups/404 page.png "Location not found")
