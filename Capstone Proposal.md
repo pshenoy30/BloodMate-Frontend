@@ -64,7 +64,7 @@ Provide visuals of your app's screens. You can use tools like Figma or pictures 
 - The site is designed to be used for mobile screens at 370px
 
 ### Main Page
-![Main Page](./Mockups/Main Page.png)
+![Main Page](https://github.com/pshenoy30/pratiksha-shenoy-capstone-frontend/blob/feature/proposal/Mockups/Main%20Page.png)
 ### Get the location of the donor
 ![Get the location of the donor](./Mockups/Donor Site Location.png "")
 ![Alt text](./Mockups/Getting the donor sites near the donor location.png "Showing all the near donor sites")
