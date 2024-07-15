@@ -70,9 +70,9 @@ Create a streamlined and efficient process to facilate secure and organized mana
 | Step     | Description                                        | Image                                                                                         |
 | :----:   |    :----:                                          |     :---:                                                                                     |
 | 1        | First Screen Page                                  | <img src="/Mockups/Main Page.png" width=395 height=580>                                       |
-| 2        | Get the location of the requestor                  | <img src="/Mockups/Retrieve the location of the requestor.png" width=395 height=480>          |
-| 3        | Showing all the nearby donors                      | <img src="Mockups/All the donors who are in the given location.png" width=395 height=480>     |
-| 4        | Information of the donor selected                  | <img src="/Mockups/Information of the donor selected.png" width=395 height=480>               |
+| 2        | Get the location of the requestor                  | <img src="/Mockups/Retrieve the location of the requestor.png" width=395 height=580>          |
+| 3        | Showing all the nearby donors                      | <img src="Mockups/All the donors who are in the given location.png" width=395 height=580>     |
+| 4        | Information of the donor selected                  | <img src="/Mockups/Information of the donor selected.png" width=395 height=580>               |
 | 5        | Page not found                                     | <img src="/Mockups/404 page.png" width=395 height=580>                                        |
 
 ### Data
