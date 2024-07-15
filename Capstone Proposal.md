@@ -70,9 +70,9 @@ Provide visuals of your app's screens. You can use tools like Figma or pictures 
      <td>Present day in purple and selected day in pink</td>
   </tr>
   <tr>
-    <td><img src="/Mockups/Main Page.png" width=270 height=480></td>
-    <td><img src="/Mockups/Donor Site Location.png" width=270 height=480></td>
-    <td><img src="/Mockups/Getting the donor sites near the donor location.png" width=270 height=480></td>
+    <td><img src="/Mockups/Main Page.png" width=300 height=480></td>
+    <td><img src="/Mockups/Donor Site Location.png" width=300 height=480></td>
+    <td><img src="/Mockups/Getting the donor sites near the donor location.png" width=300 height=480></td>
   </tr>
  </table>
 ![Main Page](https://github.com/pshenoy30/pratiksha-shenoy-capstone-frontend/blob/feature/proposal/Mockups/Main%20Page.png)
