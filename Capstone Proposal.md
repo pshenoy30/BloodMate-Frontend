@@ -55,44 +55,16 @@ Create a streamlined and efficient process to facilate secure and organized mana
 - The site is designed to be used for mobile screens at 370px
 
 ### Donor Route
-    <table>
-        <tr>
-            <td>First Screen Page</td>
-            <td>Get the location of the donor</td>
-        </tr> 
-        <tr>
-            <td><img src="/Mockups/Main Page.png" width=395 height=480></td>
-            <td><img src="/Mockups/Donor Site Location.png" width=395 height=480></td> 
-        </tr>
-    </table>
-    <table>
-        <tr>
-            <td>Showing all the near donor sites</td>
-            <td>Showing the route to the nearest donation site</td>
-        </tr>
-        <tr>
-            <td><img src="/Mockups/Getting the donor sites near the donor location.png" width=395 height=480></td>
-            <td><img src="/Mockups/Route to the nearest donor location.png" width=395 height=480></td>
-        </tr>
-    </table>
-    <table>
-        <tr>
-            <td>Showing the information of the donor site on click</td>
-            <td>Showing the timing of clicked donation site</td>
-        </tr>
-        <tr>
-            <td><img src="/Mockups/infomation of donor site.png" width=395 height=480></td>
-            <td><img src="/Mockups/Getting the donor sites near the donor location.png" width=395 height=480></td>
-        </tr>
-    </table>
-    <table>
-        <tr>
-            <td>Page not found</td>
-        </tr>
-        <tr>
-            <td><img src="/Mockups/404 page.png" width=395 height=480></td>
-        </tr>
-    </table>
+| Step     | Description                                        | Image                                                                                         |
+| :----:   |    :----:                                          |     ---:                                                                                      |
+| 1        | First Screen Page                                  | <img src="/Mockups/Main Page.png" width=395 height=480 />                                     |
+| 2        | Get the location of the donor                      | <img src="/Mockups/Donor Site Location.png" width=395 height=480>                             |
+| 3        | Showing all the near donor sites                   | <img src="/Mockups/Getting the donor sites near the donor location.png" width=395 height=480> |
+| 4        | Showing the route to the nearest donation site     | <img src="/Mockups/Route to the nearest donor location.png" width=395 height=480>             |
+| 5        | Showing the information of the donor site on click | <img src="/Mockups/infomation of donor site.png" width=395 height=480>                        |
+| 6        | Showing the timing of clicked donation site        | <img src="/Mockups//donor site timing.png" width=395 height=480>                              |
+| 7        | Page not found                                     | <img src="/Mockups/404 page.png" width=395 height=480>                                        |
+
 
 ### Requestor Route
     <table>
