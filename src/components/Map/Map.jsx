@@ -99,7 +99,8 @@ function Map() {
   }
 
   function closeModal(){
-    setIsOpen(false)
+    setIsOpen(false);
+    setSelected(null)
   }
 
   const mapRef = useRef();
@@ -144,22 +145,14 @@ function Map() {
                 }}/>
             ))}
             {routes && (<DirectionsRenderer directions={routes} />)}
-            <Modal isOpen={modalIsOpen}
+            {!siteData && <Modal isOpen={modalIsOpen}
         onRequestClose={closeModal}
         contentLabel="marker info" ariaHideApp={false} className="modal" shouldCloseOnOverlayClick={true}>
         <button className='modal__close' onClick={closeModal}>
               <img className="list__img" src={closeImg} alt="close button" />
         </button>
         <h3 className="modal__title modal__title--center">No nearby donation sites. Please try a different location</h3>      
-        </Modal>
-        {/* <Modal isOpen={modalIsOpen}
-        onRequestClose={closeModal}
-        contentLabel="marker info" ariaHideApp={false} className="modal" shouldCloseOnOverlayClick={true}>
-        <button className='modal__close' onClick={closeModal}>
-              <img className="list__img" src={closeImg} alt="close button" />
-        </button>
-        <h3 className="modal__title modal__title--center">Google maps api doesnot have the latitude and longitude information to display it on the map</h3>      
-        </Modal> */}
+        </Modal>}
             {selected ? (
                 <InfoWindowF position={{lat: selected.latitude, lng: selected.longitude}} onCloseClick={()=>setSelected(null)}>
                 <article>

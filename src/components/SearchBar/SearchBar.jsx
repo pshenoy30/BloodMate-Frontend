@@ -91,7 +91,7 @@ function SearchBar({panTo,type}) {
                       setValue(e.target.value);
                   }} disabled={!ready}
                   placeholder="Enter the nearest city"
-                  className="search__bar"
+                  className="search__bar search__bar--requestor"
                   />
                   <ComboboxPopover className="search__suggestions">
                      <ComboboxList className="search__list">

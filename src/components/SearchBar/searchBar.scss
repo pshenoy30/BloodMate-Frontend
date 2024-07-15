@@ -21,6 +21,9 @@
         padding: 0.5rem 1rem;
         border: 1px solid $secondary-pink;
         border-radius: 20px;
+        &--requestor{
+            width:23rem;
+        }
     }
 
     &__suggestions{
