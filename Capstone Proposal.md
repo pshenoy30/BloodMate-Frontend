@@ -64,8 +64,8 @@ Provide visuals of your app's screens. You can use tools like Figma or pictures 
 - The site is designed to be used for mobile screens at 370px
 
 ### Donor Route
-![Alt text](./Mockups/Main Page.png "Main Page")
-![Alt text](./Mockups/Donor Site Location.png "Get the location of the donor")
+![Image](./Mockups/Main Page.png "Main Page")
+![Image](./Mockups/Donor Site Location.png "Get the location of the donor")
 ![Alt text](./Mockups/Getting the donor sites near the donor location.png "Showing all the near donor sites")
 ![Alt text](./Mockups/Route to the nearest donor location.png "Showing the route to the nearest donation site")
 ![Alt text](./Mockups/infomation of donor site.png "Showing the information of the donor site on click")
@@ -93,10 +93,10 @@ List endpoints that your server will implement, including HTTP methods, paramete
 
 ### Donor Route
 GET request from the backend to get the list of the nearby locations based on the given address \
-Google Maps API request to get the map based on the address \ 
+Google Maps API request to get the map based on the address 
 Google Maps API request to get the route to the nearest donor site \
 Google Maps API request to get markers on the map \
-Google Maps API request to show address suggestions \
+Google Maps API request to show address suggestions 
 
 ### Requestor Route
 GET request from the backend to show all the donors based on the location
@@ -128,5 +128,5 @@ Your project will be marked based on what you committed to in the above document
 :thought_balloon: Donor will be able to see the sites that are in urgent need of blood \
 :thought_balloon: The ability for the requestor to email the donor directly \
 :thought_balloon: Reaching out to a donor based on their schedule \
-:thought_balloon: Pop up for no nearby donor site locations \
+:thought_balloon: Pop up for no nearby donor site locations 
 
