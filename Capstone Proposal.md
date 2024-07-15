@@ -77,13 +77,10 @@ Create a streamlined and efficient process to facilate secure and organized mana
 
 ### Data
 
-Describe your data and the relationships between them. You can show this visually using diagrams, or write it out. 
 - Data of all the donations with info
 - Data of all the blood donor in the network 
 
 ### Endpoints
-
-List endpoints that your server will implement, including HTTP methods, parameters, and example responses.
 
 ### Donor Route
 GET request from the backend to get the list of the nearby locations based on the given address \
@@ -101,13 +98,16 @@ Does your project include any login or user profile functionality? If so, descri
 
 ## Roadmap
 
-Scope your project as a sprint. Break down the tasks that will need to be completed and map out timeframes for implementation. Think about what you can reasonably complete before the due date. The more detail you provide, the easier it will be to build.
-
-:white_check_mark: Work with the GoogleMaps API to get the locations of all the donation sites \
-:white_check_mark: Learn and try MongoDB to create a dataset \
-:white_check_mark: Work on creating mockup of the mobile pages \
-:white_check_mark: work on the implementing the server to get data from database \
-:white_check_mark: work on implement pages 1-3
+:white_check_mark: Create mock data for users who will be either donors or requestors \
+:white_check_mark: Scrape the canadian blood services website to get information for all the donation sites \
+:white_check_mark: Create mick data for the inventory based on the donation dite id \
+:white_check_mark: Implement schemas for based on the 3 datasets for MongoDB  \
+:white_check_mark: Implement seeding for based on the 3 datasets for MongoDB  \
+:white_check_mark: Implement the server requests for each of the databases  \
+:white_check_mark: Implement with the GoogleMaps API to display all the donation sites based on the location \
+:white_check_mark: Implement with the GooglePlaces API to autocomplete addresses \
+:white_check_mark: Implement Steps 1-7 based on the mockup for donor route \
+:white_check_mark: Implement Steps 2-4 based on the mockup for requestor route \
 
 ## Nice-to-haves
 
