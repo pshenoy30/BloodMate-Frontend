@@ -2,28 +2,22 @@
 
 ## Overview
 
-What is your app? Brief description in a couple of sentences.
 Blood Bank Management System:
 Create a streamlined and efficient process to facilate secure and organized management of blood donations
 
 ### Problem
-
-Why is your app needed? Background information around any pain points or other reasons.
-- useful in emergency situations
-- improve the efficient in retrieving blood products 
-- shorten the turnaround timing for locating sites
+- Useful in emergency situations
+- Improve the efficient in retrieving blood products 
+- Shorten the turnaround timing for locating sites
 
 ### User Profile
 
-Who will use your app? How will they use it? Any special considerations that your app must take into account.
-- used by all who: 
+- Used by all who: 
     - blood donors
     - in need of blood donors
-- will be used on mobile
+- Will be used on mobile
 
 ### Features
-
-List the functionality that your app will include. These can be written as user stories or descriptions with related details. Do not describe _how_ these features are implemented, only _what_ needs to be implemented.
 
 ### Blood Donors:
 - Donor will be able to locate the nearest site for donation 
@@ -35,7 +29,6 @@ List the functionality that your app will include. These can be written as user 
 
 ### Tech Stack
 
-List technologies that will be used in your app, including any libraries to save time or provide more functionality. Be sure to research any potential limitations.
 - React
 - MongoDB
 - NodeJS
@@ -44,12 +37,12 @@ List technologies that will be used in your app, including any libraries to save
 
 ### APIs
 
-List any external sources of data that will be used in your app.
-- googleMaps api
+- googleMaps API
+- googlePlaces API
+- gooleRoutes API
 
 ### Sitemap
 
-List the pages of your app with brief descriptions. You can show this visually, or write it out.
 ### Page 1:
 - Choose if you are a donor or a requestor
 ### Page 2: Donor
@@ -59,54 +52,76 @@ List the pages of your app with brief descriptions. You can show this visually, 
 
 ### Mockups
 
-Provide visuals of your app's screens. You can use tools like Figma or pictures of hand-drawn sketches.
-
 - The site is designed to be used for mobile screens at 370px
 
 ### Donor Route
-<table>
-  <tr>
-    <td>First Screen Page</td>
-     <td>Get the location of the donor</td>
-     <td>Showing all the near donor sites</td>
-     <td>Showing the route to the nearest donation site</td>
-     <td>Showing the information of the donor site on click</td>
-     <td>Showing the timing of clicked donation site</td>
-     <td>Page not found</td>
-  </tr>
-  <tr>
-    <td><img src="/Mockups/Main Page.png" width=395 height=480></td>
-    <td><img src="/Mockups/Donor Site Location.png" width=395 height=480></td>
-    <td><img src="/Mockups/Getting the donor sites near the donor location.png" width=395 height=480></td>
-    <td><img src="/Mockups" width=395 height=480></td>
-    <td><img src="/Mockups/Route to the nearest donor location.png" width=395 height=480></td>
-    <td><img src="/Mockups/infomation of donor site.png" width=395 height=480></td>
-    <td><img src="/Mockups/Getting the donor sites near the donor location.png" width=395 height=480></td>
-    <td><img src="/Mockups/404 page.png" width=395 height=480></td>
-  </tr>
- </table>
+    <table>
+        <tr>
+            <td>First Screen Page</td>
+            <td>Get the location of the donor</td>
+        </tr> 
+        <tr>
+            <td><img src="/Mockups/Main Page.png" width=395 height=480></td>
+            <td><img src="/Mockups/Donor Site Location.png" width=395 height=480></td> 
+        </tr>
+    </table>
+    <table>
+        <tr>
+            <td>Showing all the near donor sites</td>
+            <td>Showing the route to the nearest donation site</td>
+        </tr>
+        <tr>
+            <td><img src="/Mockups/Getting the donor sites near the donor location.png" width=395 height=480></td>
+            <td><img src="/Mockups/Route to the nearest donor location.png" width=395 height=480></td>
+        </tr>
+    </table>
+    <table>
+        <tr>
+            <td>Showing the information of the donor site on click</td>
+            <td>Showing the timing of clicked donation site</td>
+        </tr>
+        <tr>
+            <td><img src="/Mockups/infomation of donor site.png" width=395 height=480></td>
+            <td><img src="/Mockups/Getting the donor sites near the donor location.png" width=395 height=480></td>
+        </tr>
+    </table>
+    <table>
+        <tr>
+            <td>Page not found</td>
+        </tr>
+        <tr>
+            <td><img src="/Mockups/404 page.png" width=395 height=480></td>
+        </tr>
+    </table>
 
 ### Requestor Route
-<table>
-  <tr>
-    <td>First Screen Page</td>
-     <td>Get the location of the requestor</td>
-     <td>Showing all the nearby donors</td>
-     <td>Information of the donor selected</td>
-     <td>Page not found</td>
-  </tr>
-  <tr>
-    <td><img src="/Mockups/Main Page.png" width=395 height=480></td>
-    <td><img src="/Mockups/Retrieve the location of the requestor.png" width=395 height=480></td>
-    <td><img src="Mockups/All the donors who are in the given location.png" width=395 height=480></td>
-    <td><img src="/Mockups/Information of the donor selected.png" width=395 height=480></td>
-    <td><img src="/Mockups/404 page.png" width=395 height=480></td>
-  </tr>
- </table>
-
-### Not Found Route
-![Alt text](./Mockups/404 page.png "Location not found")
-
+    <table>
+        <tr>
+            <td>First Screen Page</td>
+            <td>Get the location of the requestor</td>
+        </tr> 
+        <tr>
+            <td><img src="/Mockups/Main Page.png" width=395 height=480></td>
+            <td><img src="/Mockups/Retrieve the location of the requestor.png" width=395 height=480></td>
+        </tr>
+    </table>
+    <table>
+        <tr>
+            <td>Showing all the nearby donors</td>
+            <td>Information of the donor selected</td>
+        </tr>
+        <tr>
+            <td><img src="Mockups/All the donors who are in the given location.png" width=395 height=480></td>
+            <td><img src="/Mockups/Information of the donor selected.png" width=395 height=480></td>
+    </table>
+    <table>
+        <tr>
+            <td>Page not found</td>
+        </tr>
+        <tr>
+            <td><img src="/Mockups/404 page.png" width=395 height=480></td>
+        </tr>
+    </table>
 
 ### Data
 
