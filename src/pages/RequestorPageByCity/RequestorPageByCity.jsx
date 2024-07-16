@@ -25,6 +25,7 @@ export default function DonorPageByCity() {
     async function getDonorData(city) {
       try {
         setDonors(await getDonorInfo(city));
+        console.log(await getDonorInfo(city))
         setLoading(false);
       } catch (error) {
         console.log("Error fetching data", error);
@@ -57,7 +58,7 @@ export default function DonorPageByCity() {
                         <article className="requestor__site-card__inner">
                             <article className="requestor__site-card__front" onClick={()=>setFlip(!flip)}>
                                 <h3 className="requestor__site-card__front__title">{donor.firstName} {donor.lastName}</h3>
-                                {donor.availability?<h3 className="requestor__site-card__front__title">Available</h3>:<h3 className="requestor__site-card__front__title">Not Available</h3>} 
+                                {donor.availability === "yes"?<h3 className="requestor__site-card__front__title">Available</h3>:<h3 className="requestor__site-card__front__title">Not Available</h3>} 
                             </article>
                             <article className="requestor__site-card__back" onClick={()=>setFlip(!flip)}>
                                 <article className="requestor__site-card__container">
@@ -74,8 +75,7 @@ export default function DonorPageByCity() {
                 )):<article className={`requestor__site-card`}>
                         <article className="requestor__site-card__inner">
                             <article className="requestor__site-card__front">
-                                <h3 className="requestor__site-card__front__title">No donors available</h3>
-                                <h3>Available</h3>  
+                                <h3 className="requestor__site-card__front__title">No donors available</h3> 
                             </article>
                         </article> 
                     </article>    }
