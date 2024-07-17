@@ -67,7 +67,6 @@ export default function DonorPageByCity() {
                                     <h3 className="requestor__site-card__container--space">{donor.gender}</h3> 
                                     <hr />
                                     <h3 className="requestor__site-card__container--space">{donor.bloodType}</h3> 
-
                                 </article>
                             </article>    
                         </article> 
@@ -79,6 +78,7 @@ export default function DonorPageByCity() {
                             </article>
                         </article> 
                     </article>    }
+
                 </div>  
             </section>
           </> 
