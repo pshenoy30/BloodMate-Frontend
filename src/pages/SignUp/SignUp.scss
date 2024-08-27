@@ -1,0 +1,83 @@
+@use "../../styles/partials/globals" as *;
+@use "../../styles/partials/variables" as *;
+
+.signup-page {
+    background-color: $background-pink;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1rem 1rem 1rem;
+}
+
+.signup {
+    display: flex;
+    flex-direction: column;
+    width: 19rem;
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.1);
+    background-color: $primary-white;
+    border-radius: 0.5rem;
+    padding: 2rem 1.5rem;
+    margin-bottom: 1rem;
+    color: $background-pink;
+
+    &__title {
+        margin-top: 0;
+        margin-bottom: 1.5rem;
+        text-align: center;
+        font-size: 1.5rem;
+        border-bottom: 5px solid $background-pink;
+        padding-bottom: 0.5rem;
+        align-self: center;
+    }
+
+    &__button {
+        margin-top: 1rem;
+        background-color: $background-pink;
+        border: 1px solid $background-pink;
+        color: $primary-white;
+        border-radius: 0.5rem;
+        padding: 0.5rem;
+        font-size: inherit;
+        cursor: pointer;
+        transition: background-color 0.15s;
+
+        &:hover {
+            background-color: $secondary-cloud;
+        }
+    }
+
+    &__message {
+        border-left: 5px solid #ddd;
+        padding: 0.75rem;
+        margin-top: 2rem;
+    }
+
+    &__text{
+        color: $primary-white;
+    }
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+
+    &__label {
+        margin-bottom: 0.5rem;
+    }
+
+    &__input {
+        margin-bottom: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 0.5rem;
+        padding: 0.5rem;
+        font-size: inherit;
+    }
+    &--flex{
+       flex-direction: row;
+       align-items: baseline;
+       justify-content: left;
+       gap: 1rem
+        
+    }
+}

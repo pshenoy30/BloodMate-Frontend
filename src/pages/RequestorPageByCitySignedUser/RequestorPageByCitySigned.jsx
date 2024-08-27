@@ -1,14 +1,17 @@
 import SearchBar from "../../components/SearchBar/SearchBar";
 import getDonorInfo from "../../utils/getDonorInfo";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import "./RequestorPageByCity.scss"
+import { useParams, Link,useNavigate } from "react-router-dom";
+import "./RequestorPageByCitySigned.scss"
 import Header from '../../components/Header/Header';
 import { useLoadScript } from "@react-google-maps/api";
+import MapIcon from "../../assets/map.svg";
+import BloodBagIcon from "../../assets/blood-bag.png";
+import LogOutIcon from "../../assets/log-out.png";
 
 const libraries = ["places"];
 
-export default function DonorPageByCity() {
+export default function RequestorPageByCitySigned() {
 
   const {isLoaded, loadError} = useLoadScript({
     googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAPS_API_KEY,
@@ -19,7 +22,10 @@ export default function DonorPageByCity() {
     const [isLoading, setLoading] = useState(true);
     const [error, setError] = useState(false);
     const [flip, setFlip] = useState(false)
+    const [failedAuth, setFailedAuth] = useState(false);
+    const [user, setUser] = useState(null);
     const { city } = useParams();
+    const navigate = useNavigate();
 
   useEffect(() => {
     async function getDonorData(city) {
@@ -34,6 +40,15 @@ export default function DonorPageByCity() {
 
     getDonorData(city);
   }, [city]);
+
+  const logout = () => {
+    sessionStorage.removeItem("token");
+    setUser(null);
+    setFailedAuth(true);
+  };
+  if (failedAuth) {
+    navigate("/login")
+  }
 
   if(loadError) return "Error loading maps";
   if(!isLoaded) return "Loading maps";
@@ -74,12 +89,27 @@ export default function DonorPageByCity() {
                 )):<article className={`requestor__site-card`}>
                         <article className="requestor__site-card__inner">
                             <article className="requestor__site-card__front">
-                                <h3 className="requestor__site-card__front__title">No donors available</h3>
+                                <h3 className="requestor__site-card__front__title">No donors available</h3> 
                             </article>
                         </article> 
                     </article>    }
                 </div>  
             </section>
+            <footer className="dashboard__footer">
+                <Link to={`/donor/Toronto/43.653226/-79.3831843/Toronto,%20ON,%20Canada/signed`}>
+                  <div className="dashboard__footer__div">
+                    <img  className="dashboard__icons" src={MapIcon} alt="Shows the nearest donation sites" />
+                  </div>
+                </Link>
+                <Link to={`/requestor/Toronto/signed`}>
+                  <div className="dashboard__footer__div">
+                    <img  className="dashboard__icons" src={BloodBagIcon} alt="Request for Blood" />
+                  </div>
+                </Link>
+                <div onClick={logout}>
+                  <img  className="dashboard__icons" src={LogOutIcon} alt="Log out the user" />
+                </div>
+            </footer>  
           </> 
         )
 }

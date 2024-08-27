@@ -22,4 +22,9 @@ body,html {
     &__title{
         margin: 0;
     }
+
+    &__button{
+        background-color: $background-pink;
+        color: $primary-white;
+    }
 }

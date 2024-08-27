@@ -75,6 +75,8 @@ function Map() {
     const closest = findClosestMarker(center.lat,center.lng, markers)
     destinationAddress = siteData.find((address) => (address.latitude === closest.lat && address.longitude === closest.lng)).fullAddress;
 
+  } else {
+    
   }
 
   const getRoutes = useCallback(async (origin,end)=>{

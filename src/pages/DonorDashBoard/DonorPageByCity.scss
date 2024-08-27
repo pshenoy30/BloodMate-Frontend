@@ -1,14 +1,10 @@
-@use "../../styles/partials/globals" as *;
-@use "../../styles/partials/variables" as *;
-
-.requestor{
-&__cards{
-    margin-top: 3rem;
+.cards{
+    margin-top: 12rem;
 }
 
-&__site-card{
+.site-card{
     width: 18.75rem;
-    height: 10rem;
+    height: 35rem;
     margin-left: 2.5rem;
     margin-bottom: 2rem;
 
@@ -37,7 +33,7 @@
     &__front {
         color: white;
         &__title{
-            margin-top: 3rem;
+            margin-top: 13rem;
         }
     }
 
@@ -47,18 +43,8 @@
       }
     
     &__container{
-        &--space{
-            margin: 0.25rem 0;
-            color: $primary-white;
-            text-decoration: none;
-            &--link{
-                padding-top: 1rem;
-                text-decoration: none;
-            }
-        }
-        
+        margin-top: 2.5rem;
     }  
-}
 }
 
 
